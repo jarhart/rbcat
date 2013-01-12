@@ -27,6 +27,10 @@ class ST
     def chain(sts)
       sequence(sts).map { |xs| xs.last }
     end
+
+    def repeat(n, st)
+      new { |s0| n.times.inject([nil, s0]) { |(x, s),| st.(s) } }
+    end
   end
 
   def initialize(&f)

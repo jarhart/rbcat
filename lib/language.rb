@@ -77,7 +77,7 @@ class Language
 
       :times => pop >>-> w {
                 pop >>-> x {
-                ST.chain([w] * x) }},
+                ST.repeat(x, w) }},
 
       :dip =>   pop >>-> w {
                 pop >>-> x {
