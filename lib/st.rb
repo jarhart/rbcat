@@ -20,12 +20,12 @@ class ST
 
     def sequence(sts)
       new { |s0|
-        sts.inject([[], s0]) { |(rs, s), st| st.map { |r| rs << r }.(s) }
+        sts.inject([[], s0]) { |(xs, s), st| st.map { |x| xs << x }.(s) }
       }
     end
 
     def chain(sts)
-      sequence(sts).map { |rs| rs.last }
+      sequence(sts).map { |xs| xs.last }
     end
   end
 

@@ -13,7 +13,7 @@ class Machine
     end
 
     def pop
-      ST.get >>-> m { ST.set(m.pop).map { m.top } }
+      @pop ||= ST.get >>-> m { ST.set(m.pop).map { m.top } }
     end
 
     def peek

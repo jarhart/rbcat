@@ -24,49 +24,49 @@ class Language
                 push(y) }},
 
       :inc =>   pop >>-> x {
-                push x + 1 },
+                push(x + 1) },
 
       :dec =>   pop >>-> x {
-                push x - 1 },
+                push(x - 1) },
 
       :+ =>     pop >>-> x {
                 pop >>-> y {
-                push y + x }},
+                push(y + x) }},
 
       :- =>     pop >>-> x {
                 pop >>-> y {
-                push y - x }},
+                push(y - x) }},
 
       :* =>     pop >>-> x {
                 pop >>-> y {
-                push y * x }},
+                push(y * x) }},
 
       :/ =>     pop >>-> x {
                 pop >>-> y {
-                push y / x }},
+                push(y / x) }},
 
       :and =>   pop >>-> x {
                 pop >>-> y {
-                push y && x }},
+                push(y && x) }},
 
       :or =>    pop >>-> x {
                 pop >>-> y {
-                push y || x }},
+                push(y || x) }},
 
       :not =>   pop >>-> x {
-                push !x },
+                push(!x) },
 
       :eq =>    pop >>-> x {
                 peek >>-> y {
-                push y == x }},
+                push(y == x) }},
 
       :< =>     pop >>-> x {
                 peek >>-> y {
-                push y < x }},
+                push(y < x) }},
 
       :> =>     pop >>-> x {
                 peek >>-> y {
-                push y > x }},
+                push(y > x) }},
 
       :cat =>   pop >>-> x {
                 pop >>-> y {
