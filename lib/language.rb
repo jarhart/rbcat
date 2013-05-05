@@ -1,8 +1,8 @@
 require 'machine'
-require 'st'
+require 'state'
 
 class Language
-  include Machine::STs
+  include Machine::States
 
   def self.definitions
     @definitions ||= self.new.definitions
@@ -77,7 +77,7 @@ class Language
 
       :times => pop >>-> w {
                 pop >>-> x {
-                ST.repeat(x, w) }},
+                State.repeat(x, w) }},
 
       :dip =>   pop >>-> w {
                 pop >>-> x {

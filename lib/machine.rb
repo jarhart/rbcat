@@ -1,35 +1,35 @@
 require 'stack'
-require 'st'
+require 'state'
 
 class Machine
 
-  module STs
+  module States
     def noop
-      @noop ||= ST[nil]
+      @noop ||= State[nil]
     end
 
     def push(x)
-      ST.update { |m| m.push(x) }
+      State.update { |m| m.push(x) }
     end
 
     def pop
-      @pop ||= ST.get >>-> m { ST.set(m.pop).map { m.top } }
+      @pop ||= State.get >>-> m { State.set(m.pop).map { m.top } }
     end
 
     def peek
-      @peek ||= ST.get.map { |m| m.top }
+      @peek ||= State.get.map { |m| m.top }
     end
 
     def define(name, st)
-      ST.update { |m| m.define(name, st) }
+      State.update { |m| m.define(name, st) }
     end
 
     def perform(name)
-      ST.get >>-> m { m.lookup(name) }
+      State.get >>-> m { m.lookup(name) }
     end
 
     def stack_dump
-      @stack_dump ||= ST.get.map { |m| m.stack_dump }
+      @stack_dump ||= State.get.map { |m| m.stack_dump }
     end
   end
 
@@ -62,5 +62,5 @@ class Machine
     @stack.to_a
   end
 
-  extend STs
+  extend States
 end

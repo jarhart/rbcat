@@ -1,6 +1,6 @@
 require 'machine'
 require 'language'
-require 'st'
+require 'state'
 
 module Compiler
 
@@ -15,7 +15,7 @@ module Compiler
   end
 
   def compile(src)
-    ST.chain(src.map { |a| compile_word(a) })
+    State.chain(src.map { |a| compile_word(a) })
   end
 
   def compile_word(arg)

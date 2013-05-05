@@ -1,4 +1,4 @@
-class ST
+class State
 
   class << self
 
@@ -42,17 +42,17 @@ class ST
   end
 
   def >>(g)
-    ST.new { |s|
+    State.new { |s|
       x, s2 = self.(s)
       g.(x).(s2)
     }
   end
 
   def map(&g)
-    self >>-> x { ST[g.(x)] }
+    self >>-> x { State[g.(x)] }
   end
 
   def &(other)
-    ST.chain([self, other])
+    State.chain([self, other])
   end
 end
