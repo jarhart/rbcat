@@ -17,5 +17,5 @@ it.
 
     [3, 4, :dup, :*, :swap, :dup, :*, :+]
 
-This program calculates the sum of the squares 3 and 4, leaving 25 on the top
-of the stack.
+This program calculates the sum of the squares of 3 and 4, leaving 25 on the
+top of the stack.
