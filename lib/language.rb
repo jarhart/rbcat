@@ -18,6 +18,18 @@ class Language
       :dup =>   peek >>-> x {
                 push(x) },
 
+      :dup2 =>   pop >>-> x {
+                 peek >>-> y {
+                 push(x) &
+                 push(y) &
+                 push(x) }},
+
+      :tuck =>   pop >>-> x {
+                 pop >>-> y {
+                 push(x) &
+                 push(y) &
+                 push(x) }},
+
       :swap =>  pop >>-> x {
                 pop >>-> y {
                 push(x) &
@@ -44,6 +56,10 @@ class Language
       :/ =>     pop >>-> x {
                 pop >>-> y {
                 push(y / x) }},
+
+      :% =>     pop >>-> x {
+                pop >>-> y {
+                push(y % x) }},
 
       :and =>   pop >>-> x {
                 pop >>-> y {
