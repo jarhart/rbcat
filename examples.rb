@@ -40,3 +40,14 @@ Compiler.run([
 
   10, :show_fib
 ])
+
+Compiler.run([
+  'done?', [0, :eq], :def,
+  'need_swap?', [:dup2, :<, :swap, :drop], :def,
+  'mod_diff', [:tuck, :%], :def,
+  'gcd', [
+    [:need_swap?], [:swap], :ift,
+    [:done?], [:drop], [:mod_diff, :gcd], :ifte
+  ], :def,
+  42, 70, :gcd, :show_stack
+])
